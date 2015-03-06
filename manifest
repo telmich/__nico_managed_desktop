@@ -23,11 +23,15 @@ os=$(cat $__global/explorer/os)
 
 case $os in
     archlinux)
-        javaweb=icedtea-web-java7
+        javaweb=icedtea-web
     ;;
 
     debian)
         javaweb=icedtea-7-plugin
+    ;;
+    *)
+        echo "Unsupported OS: $os" >&2
+        exit 1
     ;;
 esac
 
