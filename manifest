@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# 2011-2015 Nico Schottelius (nico-cdist at schottelius.org)
+#
+# This file is part of cdist.
+#
+# cdist is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# cdist is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with cdist. If not, see <http://www.gnu.org/licenses/>.
+#
+#
+
+os=$(cat $__global/explorer/os)
+
+case $os in
+    archlinux)
+        javaweb=icedtea-web-java7
+    ;;
+
+    debian)
+        javaweb=icedtea-7-plugin
+    ;;
+esac
+
+for pkg in upower chromium slim lxde $javaweb; do
+   __package "$pkg" --state present
+done
+
+# To be able to control shutdown and co. from lxde
+for pkg in pm-utils upower; do
+   __package "$pkg" --state present
+done
+
+require="__package/slim" __start_on_boot slim

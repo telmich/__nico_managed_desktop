@@ -1,0 +1,34 @@
+cdist-type__nico_managed_desktop(7)
+================================
+Nico Schottelius <nico-cdist--@--schottelius.org>
+
+
+NAME
+----
+cdist-type__nico_managed_desktop - Setup a deskop with graphical login
+
+
+DESCRIPTION
+-----------
+This cdist type installs Slim + LXDE and enables them for login.
+It also installs typical software used by "normal users".
+
+EXAMPLES
+--------
+
+--------------------------------------------------------------------------------
+# Create primary user named nico
+__nico_managed_desktop
+
+--------------------------------------------------------------------------------
+
+
+SEE ALSO
+--------
+- cdist-type(7)
+
+
+COPYING
+-------
+Copyright \(C) 2011-2015 Nico Schottelius. Free use of this software is
+granted under the terms of the GNU General Public License version 3 (GPLv3).
