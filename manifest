@@ -35,7 +35,7 @@ case $os in
     ;;
 esac
 
-for pkg in upower chromium slim lxde $javaweb; do
+for pkg in upower chromium slim lxde xscreensaver $javaweb; do
    __package "$pkg" --state present
 done
 
